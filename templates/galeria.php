@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../src/exceptions/fileException.class.php';
 require_once __DIR__ . '/../src/utils/file.class.php';
+require_once __DIR__ . '/../src/entity/imagen.class.php';
 
 $errores=[]; 
 $titulo=""; 
