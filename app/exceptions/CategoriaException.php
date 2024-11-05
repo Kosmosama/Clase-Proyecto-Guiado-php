@@ -1,5 +1,5 @@
 <?php
-namespace dwes\app\exceptions;
+namespace kosmo\app\exceptions;
 use Exception;
 
 class CategoriaException extends Exception

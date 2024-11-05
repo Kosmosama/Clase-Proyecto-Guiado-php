@@ -1,5 +1,5 @@
 <?php
-    use dwes\app\utils\Utils;
+    use kosmo\app\utils\Utils;
 ?>
 
 <!-- Navigation Bar -->
@@ -18,28 +18,26 @@
         </div>
         <div class="collapse navbar-collapse navbar-right" id="menu">
             <ul class="nav navbar-nav">
-              <?php if (Utils::esOpcionMenuActiva('/index.php')==true || Utils::esOpcionMenuActiva('/')==true)
-              echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="index.php"><i class="fa fa-home sr-icons"></i> Home</a></li>
-
-              <?php if (Utils::esOpcionMenuActiva('/about.php')==true)
-              echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="about.php"><i class="fa fa-bookmark sr-icons"></i> About</a></li>
-
-              <?php if (Utils::esOpcionMenuActiva('/blog.php')==true)
-              echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="blog.php"><i class="fa fa-file-text sr-icons"></i> Blog</a></li>
-
-              <?php if (Utils::esOpcionMenuActiva('/contact.php')==true)
-              echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="contact.php"><i class="fa fa-phone-square sr-icons"></i> Contact</a></li>
-            
-              <?php if (Utils::esOpcionMenuActiva('/galeria.php')==true)
-              echo '<li class="active lien">'; else echo '<li class=”0lien”>';?>
-              <a href="galeria.php"><i class="fa fa-phone-square sr-icons"></i> Galeria</a></li>
+            <li class="lien <?= Utils::esOpcionMenuActiva('/') ? 'active' : '' ?>">
+                    <a href="/"><i class="fa fa-home sr-icons"></i> Home</a>
+                </li>
+                <li class="lien <?= Utils::esOpcionMenuActiva('/about') ? 'active' : '' ?>">
+                    <a href="/about"><i class="fa fa-bookmark sr-icons"></i> About</a>
+                </li>
+                <li class="lien <?= Utils::esOpcionMenuActiva('/galeria') ? 'active' : '' ?>">
+                    <a href="/galeria"><i class="fa fa-bookmark sr-icons"></i> Galeria</a>
+                </li>
+                <li class="lien <?= Utils::esOpcionMenuActiva('/asociados') ? 'active' : '' ?>">
+                    <a href="/asociados"><i class="fa fa-bookmark sr-icons"></i> Asociados</a>
+                </li>
+                <li class="lien <?= Utils::esOpcionMenuActiva('/blog') ? 'active' : '' ?>">
+                    <a href="/blog"><i class="fa fa-file-text sr-icons"></i> Blog</a>
+                </li>
+                <li class="<?= Utils::esOpcionMenuActiva('/contact') ? 'active' : '' ?>">
+                    <a href="/contact"><i class="fa fa-phone-square sr-icons"></i> Contact</a>
+                </li>
             </ul>
-            </ul>
-         </div>
+        </div>
     </div>
 </nav>
 <!-- End of Navigation Bar -->

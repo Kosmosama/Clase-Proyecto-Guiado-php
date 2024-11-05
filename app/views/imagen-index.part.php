@@ -18,3 +18,5 @@
         </div>
     </div>
 <?php endforeach; ?>
+
+<!-- #TODO Check if it has to be changed or not -->

@@ -1,4 +1,6 @@
 <?php
+namespace kosmo\app\utils;
+
 header('Content-Type: image/png');
 session_start();
 

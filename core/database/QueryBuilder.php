@@ -1,7 +1,10 @@
 <?php
-namespace dwes\app\database;
-use dwes\app\exceptions\QueryException;
-use dwes\app\exceptions\NotFoundException;
+namespace kosmo\core\database;
+use kosmo\app\exceptions\QueryException;
+use kosmo\app\exceptions\NotFoundException;
+use kosmo\core\App;
+use PDO;
+use PDOException;
 
 interface IEntity
 {

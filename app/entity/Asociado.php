@@ -1,6 +1,6 @@
 <?php
-namespace dwes\app\entity;
-use dwes\app\database\IEntity;
+namespace kosmo\app\entity;
+use kosmo\core\database\IEntity;
 
 class Asociado implements IEntity {
     private $id = null;

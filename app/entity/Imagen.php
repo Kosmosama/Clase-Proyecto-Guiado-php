@@ -1,6 +1,6 @@
 <?php
-namespace dwes\app\entity;
-use dwes\app\database\IEntity;
+namespace kosmo\app\entity;
+use kosmo\core\database\IEntity;
 
 class Imagen implements IEntity
 {
@@ -40,94 +40,26 @@ class Imagen implements IEntity
         ];
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
+    public function getId() { return $this->id; }
+    public function getNombre() { return $this->nombre; }
+    public function getDescripcion() { return $this->descripcion; }
+    public function getCategoria() { return $this->categoria; }
+    public function getNumVisualizaciones() { return $this->numVisualizaciones; }
+    public function getNumLikes() { return $this->numLikes; }
+    public function getNumDownloads() { return $this->numDownloads; }
+    public function setNombre($nombre): Imagen { $this->nombre = $nombre; return $this; }
+    public function setDescripcion($descripcion): Imagen { $this->descripcion = $descripcion; return $this; }
+    public function setCategoria($categoria): Imagen { $this->categoria = $categoria; return $this; }
+    public function setNumVisualizaciones($numVisualizaciones): Imagen { $this->numVisualizaciones = $numVisualizaciones; return $this; }
+    public function setNumLikes($numLikes): Imagen { $this->numLikes = $numLikes; return $this; }
+    public function setNumDownloads($numDownloads): Imagen { $this->numDownloads = $numDownloads; return $this; }
 
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
-
-    public function getDescripcion()
-    {
-        return $this->descripcion;
-    }
-
-    public function getCategoria()
-    {
-        return $this->categoria;
-    }
-
-    public function getNumVisualizaciones()
-    {
-        return $this->numVisualizaciones;
-    }
-
-    public function getNumLikes()
-    {
-        return $this->numLikes;
-    }
-
-    public function getNumDownloads()
-    {
-        return $this->numDownloads;
-    }
-
-    public function setNombre($nombre): Imagen
-    {
-        $this->nombre = $nombre;
-        return $this;
-    }
-
-    public function setDescripcion($descripcion): Imagen
-    {
-        $this->descripcion = $descripcion;
-        return $this;
-    }
-
-    public function setCategoria($categoria): Imagen
-    {
-        $this->categoria = $categoria;
-        return $this;
-    }
-
-    public function setNumVisualizaciones($numVisualizaciones): Imagen
-    {
-        $this->numVisualizaciones = $numVisualizaciones;
-        return $this;
-    }
-
-    public function setNumLikes($numLikes): Imagen
-    {
-        $this->numLikes = $numLikes;
-        return $this;
-    }
-
-    public function setNumDownloads($numDownloads): Imagen
-    {
-        $this->numDownloads = $numDownloads;
-        return $this;
-    }
+    public function getUrlPortfolio() { return self::RUTA_IMAGENES_PORTFOLIO . $this->getNombre(); }
+    public function getUrlGaleria() { return self::RUTA_IMAGENES_GALERIA . $this->getNombre(); }
+    public function getUrlClientes() { return self::RUTA_IMAGENES_CLIENTES . $this->getNombre(); }
 
     public function __toString()
     {
         return $this->descripcion;
-    }
-
-    public function getUrlPortfolio()
-    {
-        return self::RUTA_IMAGENES_PORTFOLIO . $this->getNombre();
-    }
-
-    public function getUrlGaleria()
-    {
-        return self::RUTA_IMAGENES_GALERIA . $this->getNombre();
-    }
-
-    public function getUrlClientes()
-    {
-        return self::RUTA_IMAGENES_CLIENTES . $this->getNombre();
     }
 }

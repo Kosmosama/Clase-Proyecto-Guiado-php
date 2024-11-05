@@ -1,6 +1,6 @@
 <?php
-namespace dwes\app\entity;
-use dwes\app\database\IEntity;
+namespace kosmo\app\entity;
+use kosmo\core\database\IEntity;
 
 class Categoria implements IEntity
 {
@@ -14,32 +14,11 @@ class Categoria implements IEntity
         $this->numImagenes = $numImagenes;
     }
 
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
-
-    public function getNumImagenes()
-    {
-        return $this->numImagenes;
-    }
-
-    public function setNombre($nombre): Categoria
-    {
-        $this->nombre = $nombre;
-        return $this;
-    }
-
-    public function setNumImagenes($numImagenes): Categoria
-    {
-        $this->numImagenes = $numImagenes;
-        return $this;
-    }
+    public function getId() { return $this->id; }
+    public function getNombre(){ return $this->nombre; }
+    public function getNumImagenes() { return $this->numImagenes; }
+    public function setNombre($nombre): Categoria { $this->nombre = $nombre; return $this; }
+    public function setNumImagenes($numImagenes): Categoria { $this->numImagenes = $numImagenes; return $this; }
 
     public function toArray(): array
     {
@@ -48,5 +27,10 @@ class Categoria implements IEntity
             'nombre' => $this->getNombre(),
             'numImagenes' => $this->getNumImagenes()
         ];
+    }
+
+    public function __toString()
+    {
+        return $this->getNombre();
     }
 }

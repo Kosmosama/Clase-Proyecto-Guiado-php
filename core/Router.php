@@ -1,5 +1,6 @@
 <?php
-use dwes\app\exceptions\NotFoundException;
+namespace kosmo\core;
+use kosmo\app\exceptions\NotFoundException;
 
 class Router
 {

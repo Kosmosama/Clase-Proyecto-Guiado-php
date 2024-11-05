@@ -1,6 +1,6 @@
 <?php
 
-namespace dwes\app\utils;
+namespace kosmo\app\utils;
 
 class Utils
 {

@@ -1,7 +1,7 @@
 <?php
-namespace dwes\app\repository;
-use dwes\app\entity\Categoria;
-use dwes\app\database\QueryBuilder;
+namespace kosmo\app\repository;
+use kosmo\app\entity\Categoria;
+use kosmo\core\database\QueryBuilder;
 
 class CategoriasRepository extends QueryBuilder
 {

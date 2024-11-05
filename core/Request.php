@@ -1,4 +1,6 @@
 <?php
+namespace kosmo\core;
+
 class Request
 {
     public static function uri()

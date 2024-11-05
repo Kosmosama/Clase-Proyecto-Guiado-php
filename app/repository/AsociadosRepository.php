@@ -1,7 +1,7 @@
 <?php
-namespace dwes\app\repository;
-use dwes\app\database\QueryBuilder;
-use dwes\app\entity\Asociado;
+namespace kosmo\app\repository;
+use kosmo\core\database\QueryBuilder;
+use kosmo\app\entity\Asociado;
 
 class AsociadosRepository extends QueryBuilder
 {

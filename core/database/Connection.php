@@ -1,7 +1,9 @@
 <?php
-namespace dwes\app\database;
-require_once __DIR__ . '/../../core/App.php';
-use dwes\app\exceptions\AppException;
+namespace kosmo\core\database;
+use kosmo\app\exceptions\AppException;
+use PDOException;
+use PDO;
+use kosmo\core\App;
 
 class Connection
 {

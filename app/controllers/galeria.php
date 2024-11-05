@@ -1,8 +1,9 @@
 <?php
-use dwes\app\exceptions\AppException;
-use dwes\app\exceptions\QueryException;
-use dwes\app\repository\CategoriasRepository;
-use dwes\app\repository\ImagenesRepository;
+use kosmo\app\exceptions\AppException;
+use kosmo\app\exceptions\QueryException;
+use kosmo\app\repository\CategoriasRepository;
+use kosmo\app\repository\ImagenesRepository;
+use kosmo\core\App;
 
 $errores = [];
 $titulo = "";
@@ -20,4 +21,4 @@ try {
 } catch (AppException $appException) {
     $errores[] = $appException->getMessage();
 }
-require_once __DIR__ . '/../views/galeria.view.php';
+require_once __DIR__ . '../views/galeria.view.php';

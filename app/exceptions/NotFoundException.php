@@ -1,5 +1,5 @@
 <?php
-namespace dwes\app\exceptions;
+namespace kosmo\app\exceptions;
 use Exception;
 
 class NotFoundException extends Exception

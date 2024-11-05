@@ -1,6 +1,7 @@
 <?php
-namespace dwes\app\utils;
-use dwes\app\exceptions\FileException;
+
+namespace kosmo\app\utils;
+use kosmo\app\exceptions\FileException;
 
 class File
 {
@@ -22,6 +23,7 @@ class File
         if ($this->file['error'] !== UPLOAD_ERR_OK) {
             switch ($this->file['error']) {
                 case UPLOAD_ERR_INI_SIZE:
+                    throw new FileException('Debes seleccionar un fichero');
                 case UPLOAD_ERR_FORM_SIZE:
                     // Error de tamaño
                     throw new FileException('El fichero es demasiado grande');
