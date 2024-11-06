@@ -1,6 +1,6 @@
 <?php
 namespace kosmo\app\entity;
-use kosmo\core\database\IEntity;
+use kosmo\app\entity\IEntity;
 
 class Imagen implements IEntity
 {

@@ -3,14 +3,14 @@
 
 <head>
     <?php
-        require_once __DIR__ . "./inicio.part.php";
+        require_once __DIR__ . "/inicio.part.php";
     ?>
 </head>
 
 <body id="page-top">
 
     <?php
-        require_once __DIR__ . "./navegacion.part.php";
+        require_once __DIR__ . "/navegacion.part.php";
     ?>
 
     <div id="about">
@@ -126,14 +126,14 @@
             <div class="row feedback text-center">
                 <h3>CLIENTS FEEDBACK</h3>
                 <hr>
-                <?php require __DIR__ . './imagen-cliente.part.php'; ?>
+                <?php require __DIR__ . '/imagen-cliente.part.php'; ?>
             </div>
 
         </div>
     </div>
 
     <?php
-        require_once __DIR__ . './fin.part.php';
+        require_once __DIR__ . '/fin.part.php';
     ?>
 </body>
 

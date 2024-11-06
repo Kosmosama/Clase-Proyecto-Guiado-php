@@ -1,6 +1,6 @@
 <?php
 namespace kosmo\app\entity;
-use kosmo\core\database\IEntity;
+use kosmo\app\entity\IEntity;
 
 class Categoria implements IEntity
 {
@@ -29,7 +29,7 @@ class Categoria implements IEntity
         ];
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return $this->getNombre();
     }

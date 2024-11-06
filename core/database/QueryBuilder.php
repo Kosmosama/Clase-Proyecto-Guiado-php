@@ -3,13 +3,9 @@ namespace kosmo\core\database;
 use kosmo\app\exceptions\QueryException;
 use kosmo\app\exceptions\NotFoundException;
 use kosmo\core\App;
+use kosmo\app\entity\IEntity;
 use PDO;
 use PDOException;
-
-interface IEntity
-{
-    public function toArray(): array;
-}
 
 abstract class QueryBuilder
 {

@@ -1,6 +1,6 @@
 <?php
 namespace kosmo\app\entity;
-use kosmo\core\database\IEntity;
+use kosmo\app\entity\IEntity;
 
 class Asociado implements IEntity {
     private $id = null;
@@ -8,7 +8,7 @@ class Asociado implements IEntity {
     private $logo = "";
     private $descripcion = "";
 
-    const RUTA_LOGOS_ASOCIADOS = '../../public/images/asociados/';
+    const RUTA_LOGOS_ASOCIADOS = '/../../public/images/asociados/';
 
     public function __construct($nombre = "", $logo = "", $descripcion = "") {
         $this->nombre = $nombre;

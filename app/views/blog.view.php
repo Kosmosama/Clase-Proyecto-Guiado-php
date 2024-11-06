@@ -3,14 +3,14 @@
 
 <head>
     <?php
-        require_once __DIR__ . "./inicio.part.php";
+        require_once __DIR__ . "/inicio.part.php";
     ?>
 </head>
 
 <body id="page-top">
 
     <?php
-        require_once __DIR__ . "./navegacion.part.php";
+        require_once __DIR__ . "/navegacion.part.php";
     ?>
 
     <!-- Principal Content Start -->
@@ -161,7 +161,7 @@
     <!-- End of Principal Content Start -->
 
     <?php
-        require_once __DIR__ . './fin.part.php';
+        require_once __DIR__ . '/fin.part.php';
     ?>
 </body>
 
