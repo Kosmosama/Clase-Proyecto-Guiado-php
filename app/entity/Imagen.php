@@ -57,6 +57,7 @@ class Imagen implements IEntity
     public function getUrlPortfolio() { return self::RUTA_IMAGENES_PORTFOLIO . $this->getNombre(); }
     public function getUrlGaleria() { return self::RUTA_IMAGENES_GALERIA . $this->getNombre(); }
     public function getUrlClientes() { return self::RUTA_IMAGENES_CLIENTES . $this->getNombre(); }
+    public function getUrlSubidas() { return self::RUTA_IMAGENES_SUBIDAS . $this->getNombre(); }
 
     public function __toString()
     {

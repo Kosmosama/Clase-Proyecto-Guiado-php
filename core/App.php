@@ -42,9 +42,10 @@ class App
 
     public static function getRepository(string $className): QueryBuilder
     {
-        if (! array_key_exists($className, static::$container))
+        if (!array_key_exists($className, static::$container))
             static::$container[$className] = new $className();
 
         return static::$container[$className];
     }
+
 }

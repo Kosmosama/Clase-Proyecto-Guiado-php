@@ -11,12 +11,10 @@ $descripcion = "";
 $mensaje = "";
 
 try {
-    print("las imagenes");
     $conexion = App::getConnection();
     $imagenesRepository = new ImagenesRepository();
     $categoriasRepository = new CategoriasRepository();
     $imagenes = $imagenesRepository->findAll();
-    print_r($imagenes);
     $categorias = $categoriasRepository->findAll();
 } catch (QueryException $queryException) {
     $errores[] = $fileException->getMessage();

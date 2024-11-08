@@ -36,7 +36,6 @@ class Router
     }
 
     /**
-     * @param sring $file
      * @return Router
      */
     public static function load(string $file): Router

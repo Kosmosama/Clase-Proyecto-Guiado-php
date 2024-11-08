@@ -87,9 +87,9 @@ require_once __DIR__ . '/navegacion.part.php';
                     <tbody>
                     <?php foreach ($imagenes as $imagen) : ?>
                             <tr>
-                                <th scope="row"><?= $imagen->getNombre() ?></th>
+                                <td scope="row"><?= $imagen->getNombre() ?></td>
                                 <td>
-                                    <img src="<?= $imagen->getUrlImagenes() ?>"
+                                    <img src="<?= $imagen->getUrlSubidas() ?>"
                                         alt="<?= $imagen->getDescripcion() ?>"
                                         title="<?= $imagen->getDescripcion() ?>"
                                         width="100px">
