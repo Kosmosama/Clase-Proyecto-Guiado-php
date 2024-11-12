@@ -4,6 +4,7 @@ namespace kosmo\core;
 
 use kosmo\app\exceptions\NotFoundException;
 use kosmo\app\exceptions\AppException;
+use kosmo\app\controllers\PagesController;
 
 class Router
 {
@@ -16,6 +17,7 @@ class Router
             'POST' => []
         ];
     }
+
 
     public function get(string $uri, string $controller): void
     {

@@ -5,7 +5,7 @@ use kosmo\core\Router;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$config = require_once __DIR__ . '/../config/config.php';
+$config = require_once __DIR__ . '/../app/config.php';
 App::bind('config',$config); // Guardamos la configuración en el contenedor de servicios
 
 $router = Router::load(__DIR__ . '/../app/' . $config['routes']['filename']);

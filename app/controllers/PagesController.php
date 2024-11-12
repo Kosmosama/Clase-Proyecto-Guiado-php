@@ -1,4 +1,4 @@
-<?
+<?php
 namespace kosmo\app\controllers;
 use kosmo\app\entity\Imagen;
 use kosmo\app\entity\Asociado;
@@ -9,8 +9,8 @@ class PagesController
 {
     public function index()
     {
-        $imagenGaleria = App::getRepository(Imagen::class)->findAll();
         $asociadosLista = App::getRepository(Asociado::class)->findAll();
+        $imagenGaleria = App::getRepository(Imagen::class)->findAll();
         
         Response::renderView(
             'index',
@@ -20,14 +20,23 @@ class PagesController
     }
     public function about()
     {
-        require __DIR__ . '/../views/about.view.php';
+        Response::renderView(
+            'about',
+            'layout'
+            );
     }
     public function blog()
     {
-        require __DIR__ . '/../views/blog.view.php';
+        Response::renderView(
+            'blog',
+            'layout'
+            );
     }
     public function post()
     {
-        require __DIR__ . '/../views/single_post.view.php';
+        Response::renderView(
+            'single_post',
+            'layout'
+            );
     }
 }
