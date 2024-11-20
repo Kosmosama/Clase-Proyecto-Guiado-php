@@ -2,10 +2,10 @@
 <div id="galeria">
     <div class="container">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
-            <h1>IMAGEN GALERIA</h1>
+            <h1><?= $imagen->getNombre() ?></h1>
             <hr>
             <div class="imagenes_galeria">
-                <img src="<?= $imagen->getUrlImagenesSubidas() ?>" alt="<?= $imagen->getDescripcion() ?>"
+                <img src="<?= $imagen->getUrlSubidas() ?>" alt="<?= $imagen->getDescripcion() ?>"
                     title="<?= $imagen->getDescripcion() ?>" width="500px">
                 <br>Descripción: <?= $imagen->getDescripcion() ?>
                 <br>Categoria:<?= $imagenesRepository->getCategoria($imagen)->getNombre() ?>

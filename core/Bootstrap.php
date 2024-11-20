@@ -1,4 +1,6 @@
 <?php
+Session_start();
+
 use kosmo\core\App;
 use kosmo\app\utils\MyLog;
 use kosmo\core\Router;

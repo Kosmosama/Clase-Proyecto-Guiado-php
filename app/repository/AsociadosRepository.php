@@ -12,5 +12,6 @@ class AsociadosRepository extends QueryBuilder
     public function __construct(string $table = 'asociados', string $classEntity = Asociado::class)
     {
         parent::__construct($table, $classEntity);
+        //#TODO No va pq no hay asociados
     }
 }

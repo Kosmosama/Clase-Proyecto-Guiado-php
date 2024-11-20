@@ -2,17 +2,9 @@
 <html lang="en">
 
 <head>
-    <?php
-        require_once __DIR__ . "/inicio.part.php";
-    ?>
 </head>
 
 <body id="page-top">
-
-    <?php
-        require_once __DIR__ . "/navegacion.part.php";
-    ?>
-
     <!-- Principal Content Start -->
     <div id="blog">
         <div class="container">
@@ -158,11 +150,6 @@
             </div>
         </div>
     </div>
-    <!-- End of Principal Content Start -->
-
-    <?php
-        require_once __DIR__ . '/fin.part.php';
-    ?>
 </body>
 
 </html>

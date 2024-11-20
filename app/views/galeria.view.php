@@ -1,7 +1,3 @@
-<?php
-require_once __DIR__ . '/inicio.part.php';
-require_once __DIR__ . '/navegacion.part.php';
-?>
 <div class="hero hero-inner">
     <div class="container">
         <div class="row align-items-center">
@@ -21,7 +17,7 @@ require_once __DIR__ . '/navegacion.part.php';
             <h2>Subir imágenes:</h2>
             <hr>
             <!-- Sección que muestra la confirmación del formulario o bien sus errores -->
-            <?php if ($_SERVER['REQUEST_METHOD'] === 'POST') : ?>
+            <?php if( !empty($mensaje) || !empty($errores) ) : ?>
                 <div class="alert alert-<?= empty($errores) ? 'info' : 'danger'; ?> alert-dismissible" role="alert">
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">x</span>
@@ -44,9 +40,13 @@ require_once __DIR__ . '/navegacion.part.php';
                     <div class="col-xs-12">
                         <label class="label-control">Categoria</label>
                         <select class="form-control" name="categoria">
-                            <?php foreach ($categorias as $categoria) : ?>
-                                <option value="<?= $categoria->getId() ?>"><?= $categoria->getNombre() ?></option>
-                            <?php endforeach; ?>
+                        <?php foreach ($categorias as $categoria) : ?>
+                        <option
+                        value="<?= $categoria->getId() ?>"
+                        <?= ($categoriaSeleccionada == $categoria->getId()) ? 'selected' : '' ?> >
+                        <?= $categoria->getNombre() ?>
+                        </option>
+                        <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -106,6 +106,3 @@ require_once __DIR__ . '/navegacion.part.php';
         </div>
     </div>
 </div>
-<?php
-require_once __DIR__ . '/fin.part.php';
-?>

@@ -2,6 +2,7 @@
 
 namespace kosmo\app\controllers;
 
+use kosmo\core\helpers\FlashMessage;
 use kosmo\app\exceptions\AppException;
 use kosmo\app\exceptions\QueryException;
 use kosmo\app\repository\CategoriasRepository;
@@ -10,49 +11,53 @@ use kosmo\core\App;
 use kosmo\app\exceptions\CategoriaException;
 use kosmo\app\exceptions\FileException;
 use kosmo\app\entity\Imagen;
+use kosmo\app\exceptions\ValidationException;
 use kosmo\app\utils\File;
 use kosmo\core\Response;
 
 class GaleriaController
 {
-    public function index(): void
+    public function index()
     {
-        $errores = [];
-        $titulo = "";
-        $descripcion = "";
-        $mensaje = "";
+
+        $errores = FlashMessage::get('errores', []);
+        $mensaje = FlashMessage::get('mensaje');
+        $descripcion = FlashMessage::get('descripcion');
+        $categoriaSeleccionada = FlashMessage::get('categoriaSeleccionada');
+        $titulo = FlashMessage::get('titulo');
 
         try {
-            $conexion = App::getConnection();
-            $imagenesRepository = new ImagenesRepository();
-            $categoriasRepository = new CategoriasRepository();
-            $imagenes = $imagenesRepository->findAll();
-            $categorias = $categoriasRepository->findAll();
+            $imagenes = App::getRepository(ImagenesRepository::class)->findAll();
+            $categorias = App::getRepository(CategoriasRepository::class)->findAll();
         } catch (QueryException $queryException) {
-            $errores[] = $queryException->getMessage();
+            FlashMessage::set('errores', [$queryException->getMessage()]);
         } catch (AppException $appException) {
-            $errores[] = $appException->getMessage();
+            FlashMessage::set('errores', [$appException->getMessage()]);
         }
-        require_once __DIR__ . '/../views/galeria.view.php';
+
+        Response::renderView(
+            'galeria',
+            'layout',
+            compact('imagenes', 'categorias', 'errores', 'titulo', 'descripcion', 'mensaje', 'categoriaSeleccionada')
+        );
     }
 
-    public function nueva(): void
+    public function nueva()
     {
-        $errores = [];
-        $titulo = "";
-        $descripcion = "";
-        $mensaje = "";
 
         try {
-            $conexion = App::getConnection();
-
             $imagenesRepository = App::getRepository(ImagenesRepository::class);
 
             $titulo = trim(htmlspecialchars($_POST['titulo']));
+            FlashMessage::set('titulo', $titulo);
+
             $descripcion = trim(htmlspecialchars($_POST['descripcion']));
+            FlashMessage::set('descripcion', $descripcion);
+
             $categoria = trim(htmlspecialchars($_POST['categoria']));
             if (empty($categoria))
                 throw new CategoriaException;
+                FlashMessage::set('categoriaSeleccionada', $categoria);
 
             $tiposAceptados = ['image/jpeg', 'image/gif', 'image/png'];
             $imagen = new File('imagen', $tiposAceptados); // El nombre 'imagen' es el que se ha puesto en el formulario de galeria.view.php
@@ -60,17 +65,27 @@ class GaleriaController
             $imagen->saveUploadFile(Imagen::RUTA_IMAGENES_SUBIDAS);
 
             $imagenGaleria = new Imagen($imagen->getFileName(), $descripcion, $categoria);
-            $imagenesRepository->save($imagenGaleria); // Esto era guarda, pero lo he cambiado por save pq daba error
-            App::get('logger')->add("Se ha guardado una imagen: " . $imagenGaleria->getNombre());
+            $imagenesRepository->save($imagenGaleria);
+
+            $mensaje = "Se ha guardado una imagen: " . $imagenGaleria->getNombre();
+
+            App::get('logger')->add($mensaje);
+            FlashMessage::set('mensaje', $mensaje);
+
+            FlashMessage::unset('descripcion');
+            FlashMessage::unset('categoriaSeleccionada');
+            FlashMessage::unset('titulo');
+
         } catch (FileException $fileException) {
-            $errores[] = $fileException->getMessage();
+            FlashMessage::set('errores', [$fileException->getMessage()]);
         } catch (QueryException $queryException) {
-            $errores[] = $queryException->getMessage();
+            FlashMessage::set('errores', [$queryException->getMessage()]);
         } catch (AppException $appException) {
-            $errores[] = $appException->getMessage();
+            FlashMessage::set('errores', [$appException->getMessage()]);
         } catch (CategoriaException) {
-            $errores[] = "No se ha seleccionado una categoría válida";
+            FlashMessage::set('errores', ["No se ha seleccionado una categoría válida"]);
         }
+
         App::get('router')->redirect('galeria');
     }
 

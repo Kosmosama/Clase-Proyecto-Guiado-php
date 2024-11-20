@@ -1,5 +1,7 @@
 <?php
 namespace kosmo\app\controllers;
+
+use kosmo\app\entity\Imagen;
 use kosmo\app\repository\AsociadosRepository;
 use kosmo\app\repository\ImagenesRepository;
 use kosmo\core\App;
@@ -20,10 +22,16 @@ class PagesController
     }
     public function about()
     {
+        $imagenesClientes[] = new Imagen('client1.jpg', 'MISS BELLA');
+        $imagenesClientes[] = new Imagen('client2.jpg', 'DON PENO');
+        $imagenesClientes[] = new Imagen('client3.jpg', 'SWEETY');
+        $imagenesClientes[] = new Imagen('client4.jpg', 'LADY');
+
         Response::renderView(
             'about',
-            'layout'
-            );
+            'layout',
+            compact('imagenesClientes')
+        );
     }
     public function blog()
     {

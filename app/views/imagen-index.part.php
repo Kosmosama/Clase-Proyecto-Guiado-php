@@ -2,7 +2,7 @@
     <div class="col-xs-12 col-sm-6 col-md-3">
         <div class="sol">
             <a href="<?= $imagen->getUrlGaleria() ?>" class="gallery">
-                <img class="img-responsive" src="<?= $imagen->getUrlPortfolio() ?>" alt="<?= $imagen->getDescripcion() ?>">
+                <img class="img-responsive" src="<?= $imagen->getUrlSubidas() ?>" alt="<?= $imagen->getDescripcion() ?>">
             </a>
             <div class="row box-content">
                 <div class="col-xs-4">
