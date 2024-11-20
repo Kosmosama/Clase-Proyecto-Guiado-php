@@ -31,6 +31,7 @@ class Router
     public function redirect(string $path)
     {
         header('location: /' . $path);
+        exit();
     }
 
     /**

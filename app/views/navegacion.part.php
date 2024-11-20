@@ -21,14 +21,27 @@
             <li class="lien <?= Utils::esOpcionMenuActiva('/') ? 'active' : '' ?>">
                     <a href="/"><i class="fa fa-home sr-icons"></i> Home</a>
                 </li>
+                
+                <?php if (is_null($app['user'])) : ?>
+                    <?php if (Utils::esOpcionMenuActiva('/login') == true) echo '<li class="active lien">';
+                else echo '<li class=" lien">'; ?>
+                <a href="/login"><i class="fa fa-user-secret sr-icons"></i> Login</a></li>
+                <?php else : ?>
+                    
+                    <li class="lien <?= Utils::esOpcionMenuActiva('/galeria') ? 'active' : '' ?>">
+                        <a href="/galeria"><i class="fa fa-bookmark sr-icons"></i> Galeria</a>
+                    </li>
+                    <li class="lien <?= Utils::esOpcionMenuActiva('/asociados') ? 'active' : '' ?>">
+                        <a href="/asociados"><i class="fa fa-bookmark sr-icons"></i> Asociados</a>
+                    </li>
+                    
+                    <?php if (Utils::esOpcionMenuActiva('/logout') == true) echo '<li class="active lien">';
+                else echo '<li class=" lien">'; ?>
+                <a href="/logout"><i class="fa fa-sign-out sr-icons"></i> <?= $app['user']->getUsername() ?></a></li>
+                <?php endif; ?>
+                
                 <li class="lien <?= Utils::esOpcionMenuActiva('/about') ? 'active' : '' ?>">
                     <a href="/about"><i class="fa fa-bookmark sr-icons"></i> About</a>
-                </li>
-                <li class="lien <?= Utils::esOpcionMenuActiva('/galeria') ? 'active' : '' ?>">
-                    <a href="/galeria"><i class="fa fa-bookmark sr-icons"></i> Galeria</a>
-                </li>
-                <li class="lien <?= Utils::esOpcionMenuActiva('/asociados') ? 'active' : '' ?>">
-                    <a href="/asociados"><i class="fa fa-bookmark sr-icons"></i> Asociados</a>
                 </li>
                 <li class="lien <?= Utils::esOpcionMenuActiva('/blog') ? 'active' : '' ?>">
                     <a href="/blog"><i class="fa fa-file-text sr-icons"></i> Blog</a>
