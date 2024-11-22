@@ -26,6 +26,11 @@
                     <?php if (Utils::esOpcionMenuActiva('/login') == true) echo '<li class="active lien">';
                 else echo '<li class=" lien">'; ?>
                 <a href="/login"><i class="fa fa-user-secret sr-icons"></i> Login</a></li>
+
+                <li class="<?= Utils::esOpcionMenuActiva('/registro') ? 'active' : '' ?> lien">
+                <a href="<?= Utils::esOpcionMenuActiva('/registro') ? '#' : '/registro' ?>">
+                <i class="fa fa-sign-in sr-icons"></i> Registro</a></li>
+                
                 <?php else : ?>
                     
                     <li class="lien <?= Utils::esOpcionMenuActiva('/galeria') ? 'active' : '' ?>">

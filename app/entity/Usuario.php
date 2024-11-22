@@ -48,13 +48,13 @@ class Usuario implements IEntity
     public function setPassword($password)
     {
         $this->password = $password;
-        return $password;
+        return $this;
     }
 
     public function setRole($role)
     {
         $this->role = $role;
-        return $role;
+        return $this;
     }
 
     public function toArray(): array
@@ -62,6 +62,7 @@ class Usuario implements IEntity
         return [
             'id' => $this->id,
             'username' => $this->username,
+            'password' => $this->password,
             'role' => $this->role,
         ];
     }
