@@ -1,9 +1,9 @@
 <div id="login">
     <div class="container">
         <div class="col-xs-12 col-sm-8 col-sm-push-2">
-            <h1>Login</h1>
+            <h1>check-registro</h1>
             <hr>
-            <!-- <?php include __DIR__ . '/show-error.part.view.php' ?> -->
+            <?php include __DIR__ . '/show-error.part.view.php' ?>
             <form clas="form-horizontal" action="/check-registro" method="post">
                 <div class="form-group">
                     <div class="col-xs-12">

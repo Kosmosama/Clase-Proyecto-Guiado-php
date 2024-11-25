@@ -41,12 +41,12 @@ class AuthController
             if (!isset($_POST['password']) || empty($_POST['password']))
                 throw new ValidationException('Debes introducir el usuario y el password');
 
-                $usuario = App::getRepository(UsuariosRepository::class)->findOneBy([
-                    'username' => $_POST['username']
-                    ]);
-                    if (!is_null($usuario) && Security::checkPassword($_POST['password'], $usuario->getPassword())) {
-                    // Guardamos el usuario en la sesión y redireccionamos a la página principal
-                    $_SESSION['loguedUser'] = $usuario->getId();
+            $usuario = App::getRepository(UsuariosRepository::class)->findOneBy([
+                'username' => $_POST['username']
+            ]);
+            if (!is_null($usuario) && Security::checkPassword($_POST['password'], $usuario->getPassword())) {
+                // Guardamos el usuario en la sesión y redireccionamos a la página principal
+                $_SESSION['loguedUser'] = $usuario->getId();
                 FlashMessage::unset('username');
                 App::get('router')->redirect('');
             }
@@ -70,10 +70,11 @@ class AuthController
         try {
             if (!isset($_POST['username']) || empty($_POST['username']))
                 throw new ValidationException('El nombre de usuario no puede estar vacío');
+
             FlashMessage::set('username', $_POST['username']);
             if (!isset($_POST['password']) || empty($_POST['password']))
                 throw new ValidationException('El password de usuario no puede estar vacío');
-            if (!isset($_POST['re-password']) || empty($_POST['re-password']) || $_POST['password'] !== $_POST['repassword'])
+            if (!isset($_POST['re-password']) || empty($_POST['re-password']) || $_POST['password'] !== $_POST['re-password'])
                 throw new ValidationException('Los dos password deben ser iguales');
             $password = Security::encrypt($_POST['password']);;
             $usuario = new Usuario();

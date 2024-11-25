@@ -1,6 +1,7 @@
 <?php
 namespace kosmo\app\controllers;
 
+use kosmo\app\entity\Asociado;
 use kosmo\app\entity\Imagen;
 use kosmo\app\repository\AsociadosRepository;
 use kosmo\app\repository\ImagenesRepository;
@@ -11,7 +12,12 @@ class PagesController
 {
     public function index()
     {
-        $asociados = App::getRepository(AsociadosRepository::class)->findAll();
+        $asociados = [
+            new Asociado("Asociado 1", "log1.jpg", "Descripción del asociado 1"),
+            new Asociado("Asociado 2", "log2.jpg", "Descripción del asociado 2"),
+            new Asociado("Asociado 3", "log3.jpg", "Descripción del asociado 3")
+        ];
+
         $imagenesHome = App::getRepository(ImagenesRepository::class)->findAll();
         
         Response::renderView(

@@ -102,7 +102,7 @@
 
             <!-- Box within partners name and logo -->
             <?php
-            require_once __DIR__ . "/indexlogos.view.part.php";
+                require_once __DIR__ . "/indexlogos.view.part.php";
             ?>
         </div>
     </div>
