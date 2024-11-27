@@ -44,8 +44,17 @@ class GaleriaController
 
     public function nueva()
     {
-
         try {
+            // session_start();
+
+            // if (isset($_POST['captcha']) && ($_POST['captcha'] != "")) {
+            //     if ($_SESSION['captchaGenerado'] != $_POST['captcha']) {
+            //         throw new ValidationException("¡Ha introducido un código de seguridad incorrecto! Inténtelo de nuevo.");
+            //     }
+            // } else {
+            //     throw new ValidationException("Introduzca el código de seguridad.");
+            // }
+
             $imagenesRepository = App::getRepository(ImagenesRepository::class);
 
             $titulo = trim(htmlspecialchars($_POST['titulo']));
@@ -55,12 +64,13 @@ class GaleriaController
             FlashMessage::set('descripcion', $descripcion);
 
             $categoria = trim(htmlspecialchars($_POST['categoria']));
-            if (empty($categoria))
+            if (empty($categoria)) {
                 throw new CategoriaException;
-                FlashMessage::set('categoriaSeleccionada', $categoria);
+            }
+            FlashMessage::set('categoriaSeleccionada', $categoria);
 
             $tiposAceptados = ['image/jpeg', 'image/gif', 'image/png'];
-            $imagen = new File('imagen', $tiposAceptados); // El nombre 'imagen' es el que se ha puesto en el formulario de galeria.view.php
+            $imagen = new File('imagen', $tiposAceptados);
 
             $imagen->saveUploadFile(Imagen::RUTA_IMAGENES_SUBIDAS);
 
@@ -76,6 +86,8 @@ class GaleriaController
             FlashMessage::unset('categoriaSeleccionada');
             FlashMessage::unset('titulo');
 
+        } catch (ValidationException $validationException) {
+            FlashMessage::set('errores', [$validationException->getMessage()]);
         } catch (FileException $fileException) {
             FlashMessage::set('errores', [$fileException->getMessage()]);
         } catch (QueryException $queryException) {

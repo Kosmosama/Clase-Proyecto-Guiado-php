@@ -10,6 +10,7 @@ class Usuario implements IEntity
     private $username;
     private $password;
     private $role;
+    public ?string $imagen;
 
     public function __construct($username = "", $password = "", $role = "")
     {

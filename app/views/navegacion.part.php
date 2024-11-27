@@ -36,9 +36,9 @@
                     <li class="lien <?= Utils::esOpcionMenuActiva('/galeria') ? 'active' : '' ?>">
                         <a href="/galeria"><i class="fa fa-bookmark sr-icons"></i> Galeria</a>
                     </li>
-                    <li class="lien <?= Utils::esOpcionMenuActiva('/asociados') ? 'active' : '' ?>">
+                    <!-- <li class="lien <?= Utils::esOpcionMenuActiva('/asociados') ? 'active' : '' ?>">
                         <a href="/asociados"><i class="fa fa-bookmark sr-icons"></i> Asociados</a>
-                    </li>
+                    </li> -->
                     
                     <?php if (Utils::esOpcionMenuActiva('/logout') == true) echo '<li class="active lien">';
                 else echo '<li class=" lien">'; ?>
