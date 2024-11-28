@@ -68,6 +68,16 @@ class AuthController
     public function checkRegistro()
     {
         try {
+            session_start();
+
+            if (isset($_POST['captcha']) && ($_POST['captcha'] != "")) {
+                if ($_SESSION['captchaGenerado'] != $_POST['captcha']) {
+                    throw new ValidationException("¡Ha introducido un código de seguridad incorrecto! Inténtelo de nuevo.");
+                }
+            } else {
+                throw new ValidationException("Introduzca el código de seguridad.");
+            }
+
             if (!isset($_POST['username']) || empty($_POST['username']))
                 throw new ValidationException('El nombre de usuario no puede estar vacío');
 
